@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Stat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "className")
@@ -21,22 +21,21 @@ public class Stat {
     private int wisdom;
     private int charisma;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public CharacterClass getClassName() {
+    public CharacterClass getCharacterClassName() {
         return characterClassName;
     }
 
-    public void setClassName(CharacterClass characterClassName) {
+    public void setCharacterClassName(CharacterClass characterClassName) {
         this.characterClassName = characterClassName;
     }
-
     public int getDexterity() {
         return dexterity;
     }
