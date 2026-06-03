@@ -12,6 +12,9 @@ public class Element {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String nation;
+
     public Element() {}
 
     public Long getId() {
@@ -28,5 +31,13 @@ public class Element {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
     }
 }
