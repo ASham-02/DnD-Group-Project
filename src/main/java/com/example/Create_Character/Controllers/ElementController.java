@@ -22,4 +22,9 @@ public class ElementController {
     public ResponseEntity<List<Element>> getAllElements() {
         return ResponseEntity.ok(elementService.getAllElements());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Element> getElementById(@PathVariable Long id) {
+        return ResponseEntity.ok(elementService.getElementById(id));
+    }
 }
