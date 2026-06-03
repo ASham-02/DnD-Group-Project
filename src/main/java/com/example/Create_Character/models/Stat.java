@@ -12,7 +12,7 @@ public class Stat {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "className")
-    private Class className;
+    private CharacterClass characterClassName;
 
     private int strength;
     private int dexterity;
@@ -29,12 +29,12 @@ public class Stat {
         this.id = id;
     }
 
-    public Class getClassName() {
-        return className;
+    public CharacterClass getClassName() {
+        return characterClassName;
     }
 
-    public void setClassName(Class className) {
-        this.className = className;
+    public void setClassName(CharacterClass characterClassName) {
+        this.characterClassName = characterClassName;
     }
 
     public int getDexterity() {

@@ -19,7 +19,7 @@ public class Character {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "class_id")
-    private Class className;
+    private CharacterClass characterClassName;
 
     private String artwork;
 
@@ -60,12 +60,12 @@ public class Character {
         this.weight = weight;
     }
 
-    public Class getClassName() {
-        return className;
+    public CharacterClass getClassName() {
+        return characterClassName;
     }
 
-    public void setClassName(Class className) {
-        this.className = className;
+    public void setClassName(CharacterClass characterClassName) {
+        this.characterClassName = characterClassName;
     }
 
     public String getArtwork() {
