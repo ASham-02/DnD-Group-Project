@@ -14,13 +14,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(csrf -> csrf.disable())
+                .formLogin(form -> form.disable())
+                .httpBasic(httpBasic -> httpBasic.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/auth/**")
-                        .permitAll()
                         .anyRequest()
-                        .authenticated())
-                .httpBasic(Customizer.withDefaults());
+                        .permitAll()
+                );
 
         return http.build();
     }

@@ -45,4 +45,8 @@ public class UsersAuthController {
             return "User Not Found";
         }
     }
+    @GetMapping("/")
+    public String home() {
+        return "App is running";
+    }
 }
