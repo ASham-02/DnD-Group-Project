@@ -32,7 +32,7 @@ public class CharacterService {
 
     public Character update(Long id, Character updated) {
         Character existing = repo.findById(id).orElseThrow();
-        existing.setClassName(updated.getClassName());
+        existing.setCharacterClass(updated.getCharacterClass());
         existing.setElement(updated.getElement());
         existing.setWeight(updated.getWeight());
         existing.setArtwork(updated.getArtwork());
