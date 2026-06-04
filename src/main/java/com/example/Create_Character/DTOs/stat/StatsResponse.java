@@ -1,25 +1,26 @@
-package com.example.Create_Character.models;
+package com.example.Create_Character.DTOs.stat;
 
-import jakarta.persistence.*;
 
-@Entity(name = "stats")
-@Table(name = "stats", uniqueConstraints =
-@UniqueConstraint(columnNames = {"classId"}))
-public class Stat {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class StatsResponse {
     private Long id;
-
-
-    @JoinColumn(name = "classId")
     private Long characterClassId;
-
     private int strength;
     private int dexterity;
     private int intelligence;
     private int constitution;
     private int wisdom;
     private int charisma;
+
+    public StatsResponse(Long id, Long characterClassId, int strength, int dexterity, int intelligence, int constitution, int wisdom, int charisma) {
+        this.id = id;
+        this.characterClassId = characterClassId;
+        this.strength = strength;
+        this.dexterity = dexterity;
+        this.intelligence = intelligence;
+        this.constitution = constitution;
+        this.wisdom = wisdom;
+        this.charisma = charisma;
+    }
 
     public Long getId() {
         return id;
@@ -29,19 +30,12 @@ public class Stat {
         this.id = id;
     }
 
-    public Long getCharacterClassId() {
+    public Long characterClassId() {
         return characterClassId;
     }
 
     public void setCharacterClassId(Long characterClassId) {
         this.characterClassId = characterClassId;
-    }
-    public int getDexterity() {
-        return dexterity;
-    }
-
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
     }
 
     public int getStrength() {
@@ -58,6 +52,14 @@ public class Stat {
 
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
+    }
+
+    public int getDexterity() {
+        return dexterity;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
     }
 
     public int getConstitution() {
