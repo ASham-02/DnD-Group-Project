@@ -4,15 +4,15 @@ import jakarta.persistence.*;
 
 @Entity(name = "stats")
 @Table(name = "stats", uniqueConstraints =
-@UniqueConstraint(columnNames = {"className"}))
+@UniqueConstraint(columnNames = {"classId"}))
 public class Stat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "className")
-    private CharacterClass characterClassName;
+
+    @JoinColumn(name = "classId")
+    private Long characterClassId;
 
     private int strength;
     private int dexterity;
@@ -21,22 +21,21 @@ public class Stat {
     private int wisdom;
     private int charisma;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public CharacterClass getClassName() {
-        return characterClassName;
+    public Long getCharacterClassId() {
+        return characterClassId;
     }
 
-    public void setClassName(CharacterClass characterClassName) {
-        this.characterClassName = characterClassName;
+    public void setCharacterClassId(Long characterClassId) {
+        this.characterClassId = characterClassId;
     }
-
     public int getDexterity() {
         return dexterity;
     }
