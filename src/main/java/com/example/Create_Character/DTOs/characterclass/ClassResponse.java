@@ -1,22 +1,20 @@
-package com.example.Create_Character.models;
+package com.example.Create_Character.DTOs.characterclass;
 
-import jakarta.persistence.*;
-
-
-
-@Entity(name = "classes")
-@Table(name = "classes")
-public class CharacterClass {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private Long statsId;
+public class ClassResponse {
+    private Long id;
     private String name;
+    private Long statsId;
 
-    public long getId() {
+    public ClassResponse(Long id, String name, Long statsId){
+        this.id = id;
+        this.name = name;
+        this.statsId = statsId;
+    }
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -36,5 +34,3 @@ public class CharacterClass {
         this.statsId = statsId;
     }
 }
-
-
