@@ -27,12 +27,12 @@ public class StatsService {
     }
 
     public StatsResponse addStats(CreateStatsRequest newStatsSheet) {
-        if(statsRepo.existsByCharacter(newStatsSheet.getCharacterClass())){
+        if(statsRepo.existsByCharacter(newStatsSheet.getCharacterClassId())){
             throw new IllegalArgumentException("There is already a Stats Sheet for this Class");
         }
         Stat stat = new Stat();
         //if all works in other classes, this should be fine AND grab a string
-        stat.setCharacterClassName(newStatsSheet.getCharacterClass());
+        stat.setCharacterClassId(newStatsSheet.getCharacterClassId());
         stat.setStrength(newStatsSheet.getStrength());
         stat.setDexterity(newStatsSheet.getDexterity());
         stat.setIntelligence(newStatsSheet.getIntelligence());
@@ -44,6 +44,6 @@ public class StatsService {
     }
 
     private StatsResponse mapToResponse(Stat stat) {
-        return new StatsResponse(stat.getId(),stat.getCharacterClassName(), stat.getStrength(), stat.getDexterity(), stat.getIntelligence(), stat.getConstitution(), stat.getWisdom(), stat.getCharisma());
+        return new StatsResponse(stat.getId(),stat.getCharacterClassId(), stat.getStrength(), stat.getDexterity(), stat.getIntelligence(), stat.getConstitution(), stat.getWisdom(), stat.getCharisma());
     }
 }

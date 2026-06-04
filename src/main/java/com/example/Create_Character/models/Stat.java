@@ -4,15 +4,15 @@ import jakarta.persistence.*;
 
 @Entity(name = "stats")
 @Table(name = "stats", uniqueConstraints =
-@UniqueConstraint(columnNames = {"className"}))
+@UniqueConstraint(columnNames = {"classId"}))
 public class Stat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @JoinColumn(name = "className")
-    private String characterClassName;
+    @JoinColumn(name = "classId")
+    private Long characterClassId;
 
     private int strength;
     private int dexterity;
@@ -30,12 +30,12 @@ public class Stat {
     }
 
     //Change getters and setters to take a string
-    public String getCharacterClassName() {
-        return characterClassName;
+    public Long getCharacterClassId() {
+        return characterClassId;
     }
 
-    public void setCharacterClassName(String characterClassName) {
-        this.characterClassName = characterClassName;
+    public void setCharacterClassId(Long characterClassId) {
+        this.characterClassId = characterClassId;
     }
     public int getDexterity() {
         return dexterity;

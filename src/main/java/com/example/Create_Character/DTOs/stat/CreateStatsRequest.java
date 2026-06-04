@@ -1,14 +1,14 @@
 package com.example.Create_Character.DTOs.stat;
 
-import com.example.Create_Character.models.CharacterClass;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class CreateStatsRequest {
-    @NotBlank(message = "A class should be provided")
-    private String characterClassName;
+    @NotBlank(message = "A class ID should be provided")
+    private Long characterClassId;
 
     @NotNull(message = "Stat Sheet should have strength value")
     @Min(value = 1, message = "Each stat should not be smaller than 1")
@@ -41,12 +41,12 @@ public class CreateStatsRequest {
     private int charisma;
 
     //Change to grab the name from the class
-    public String getCharacterClass() {
-        return characterClassName;
+    public Long getCharacterClassId() {
+        return characterClassId;
     }
 
-    public void setCharacterClass(String characterClass) {
-        this.characterClassName = characterClass;
+    public void setCharacterClassId(Long characterClassId) {
+        this.characterClassId = characterClassId;
     }
 
     public int getStrength() {
