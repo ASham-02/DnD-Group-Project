@@ -5,11 +5,7 @@ import com.example.Create_Character.DTOs.stat.StatsResponse;
 import com.example.Create_Character.models.Stat;
 import com.example.Create_Character.repos.StatsRepo;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 @Service
