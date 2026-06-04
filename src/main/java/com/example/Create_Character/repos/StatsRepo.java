@@ -1,4 +1,11 @@
 package com.example.Create_Character.repos;
 
-public class StatsRepo {
+
+import com.example.Create_Character.models.Stat;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface StatsRepo extends JpaRepository<Stat, Long> {
+    boolean existsByCharacterId(Long characterClassId);
 }
