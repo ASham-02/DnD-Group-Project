@@ -1,27 +1,21 @@
 package com.example.Create_Character.models;
+
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "elements")
 @Table(name = "elements")
 public class Element {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String nation;
-
-    public Element() {}
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -31,13 +25,5 @@ public class Element {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNation() {
-        return nation;
-    }
-
-    public void setNation(String nation) {
-        this.nation = nation;
     }
 }
