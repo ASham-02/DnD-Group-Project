@@ -31,7 +31,7 @@ public class StatsService {
     }
 
     public StatsResponse addStats(CreateStatsRequest newStatsSheet) {
-        if(statsRepo.existsByClass(newStatsSheet.getCharacterClass())){
+        if(statsRepo.existsByCharacter(newStatsSheet.getCharacterClass())){
             throw new IllegalArgumentException("There is already a Stats Sheet for this Class");
         }
         Stat stat = new Stat();
