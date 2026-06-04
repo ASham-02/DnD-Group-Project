@@ -27,11 +27,10 @@ public class StatsService {
     }
 
     public StatsResponse addStats(CreateStatsRequest newStatsSheet) {
-        if(statsRepo.existsByCharacter(newStatsSheet.getCharacterClassId())){
+        if(statsRepo.existsByCharacterId(newStatsSheet.getCharacterClassId())){
             throw new IllegalArgumentException("There is already a Stats Sheet for this Class");
         }
         Stat stat = new Stat();
-        //if all works in other classes, this should be fine AND grab a string
         stat.setCharacterClassId(newStatsSheet.getCharacterClassId());
         stat.setStrength(newStatsSheet.getStrength());
         stat.setDexterity(newStatsSheet.getDexterity());

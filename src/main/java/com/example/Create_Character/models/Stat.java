@@ -29,7 +29,6 @@ public class Stat {
         this.id = id;
     }
 
-    //Change getters and setters to take a string
     public Long getCharacterClassId() {
         return characterClassId;
     }

@@ -40,7 +40,7 @@ public class CreateStatsRequest {
     @Max(value = 10, message = "Each stat caps at 10")
     private int charisma;
 
-    //Change to grab the name from the class
+
     public Long getCharacterClassId() {
         return characterClassId;
     }
