@@ -1,4 +1,4 @@
-package com.example.Create_Character.DTOs.stat;
+package com.example.Create_Character.DTOs.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

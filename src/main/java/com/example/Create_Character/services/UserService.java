@@ -1,8 +1,8 @@
 package com.example.Create_Character.services;
 
-import com.example.Create_Character.DTOs.stat.ApiResponse;
-import com.example.Create_Character.DTOs.stat.LoginRequest;
-import com.example.Create_Character.DTOs.stat.RegisterRequest;
+import com.example.Create_Character.DTOs.user.ApiResponse;
+import com.example.Create_Character.DTOs.user.LoginRequest;
+import com.example.Create_Character.DTOs.user.RegisterRequest;
 import com.example.Create_Character.models.User;
 import com.example.Create_Character.repos.UserRepo;
 import org.springframework.security.crypto.password.PasswordEncoder;
