@@ -10,9 +10,9 @@ public class Stat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+
     @JoinColumn(name = "className")
-    private CharacterClass characterClassName;
+    private String characterClassName;
 
     private int strength;
     private int dexterity;
@@ -29,11 +29,12 @@ public class Stat {
         this.id = id;
     }
 
-    public CharacterClass getCharacterClassName() {
+    //Change getters and setters to take a string
+    public String getCharacterClassName() {
         return characterClassName;
     }
 
-    public void setCharacterClassName(CharacterClass characterClassName) {
+    public void setCharacterClassName(String characterClassName) {
         this.characterClassName = characterClassName;
     }
     public int getDexterity() {

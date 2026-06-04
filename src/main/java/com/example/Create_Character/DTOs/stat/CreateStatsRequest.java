@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 
 public class CreateStatsRequest {
     @NotBlank(message = "A class should be provided")
-    private CharacterClass characterClass;
+    private String characterClassName;
 
     @NotNull(message = "Stat Sheet should have strength value")
     @Min(value = 1, message = "Each stat should not be smaller than 1")
@@ -40,12 +40,13 @@ public class CreateStatsRequest {
     @Max(value = 10, message = "Each stat caps at 10")
     private int charisma;
 
-    public CharacterClass getCharacterClass() {
-        return characterClass;
+    //Change to grab the name from the class
+    public String getCharacterClass() {
+        return characterClassName;
     }
 
-    public void setCharacterClass(CharacterClass characterClass) {
-        this.characterClass = characterClass;
+    public void setCharacterClass(String characterClass) {
+        this.characterClassName = characterClass;
     }
 
     public int getStrength() {

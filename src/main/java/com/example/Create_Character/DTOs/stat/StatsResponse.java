@@ -4,7 +4,7 @@ import com.example.Create_Character.models.CharacterClass;
 
 public class StatsResponse {
     private Long id;
-    private CharacterClass characterClassName;
+    private String characterClassName;
     private int strength;
     private int dexterity;
     private int intelligence;
@@ -12,7 +12,7 @@ public class StatsResponse {
     private int wisdom;
     private int charisma;
 
-    public StatsResponse(Long id, CharacterClass characterClassName, int strength, int dexterity, int intelligence, int constitution, int wisdom, int charisma) {
+    public StatsResponse(Long id, String characterClassName, int strength, int dexterity, int intelligence, int constitution, int wisdom, int charisma) {
         this.id = id;
         this.characterClassName = characterClassName;
         this.strength = strength;
@@ -31,11 +31,11 @@ public class StatsResponse {
         this.id = id;
     }
 
-    public CharacterClass getCharacterClassName() {
+    public String getCharacterClassName() {
         return characterClassName;
     }
 
-    public void setCharacterClassName(CharacterClass characterClassName) {
+    public void setCharacterClassName(String characterClassName) {
         this.characterClassName = characterClassName;
     }
 

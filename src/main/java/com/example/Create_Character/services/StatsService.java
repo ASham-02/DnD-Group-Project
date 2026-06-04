@@ -31,6 +31,7 @@ public class StatsService {
             throw new IllegalArgumentException("There is already a Stats Sheet for this Class");
         }
         Stat stat = new Stat();
+        //if all works in other classes, this should be fine AND grab a string
         stat.setCharacterClassName(newStatsSheet.getCharacterClass());
         stat.setStrength(newStatsSheet.getStrength());
         stat.setDexterity(newStatsSheet.getDexterity());
