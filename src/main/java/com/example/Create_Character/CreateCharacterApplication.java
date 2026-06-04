@@ -14,20 +14,4 @@ public class CreateCharacterApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CreateCharacterApplication.class, args);
 	}
-
-	//	Testing UserServices
-	/*@Bean
-		CommandLineRunner test(UserService userService) {
-			return args -> {
-				RegisterRequest request = new RegisterRequest();
-				request.setUsername("JohnMike");
-				request.setEmail("JohnMike@test.com");
-				request.setPassword("12345678");
-
-				ApiResponse res = userService.register(request);
-
-				System.out.println(res.getMessage());
-
-			};
-	}*/
 }
