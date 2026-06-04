@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 public class CharacterClass {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    //Will need to change to @OnetoOne with relationship to Stat
     private Long statsId;
     private String name;
 
