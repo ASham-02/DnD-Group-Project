@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Stats")
+@RequestMapping("/api/stats")
 public class StatsController {
     private StatsService statsService;
+
+    public StatsController(StatsService statsService) {
+        this.statsService = statsService;
+    }
 
     @GetMapping
     public ResponseEntity<List<StatsResponse>> getAllStats() {

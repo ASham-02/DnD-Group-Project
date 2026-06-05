@@ -26,4 +26,10 @@ public class ElementController {
     public ResponseEntity<Element> getElementById(@PathVariable int id) {
         return ResponseEntity.ok(elementService.getElementById(id));
     }
+
+    // Code to create new element
+    @PostMapping
+    public Element createElement(@RequestBody Element element) {
+        return elementService.createElement(element);
+    }
 }

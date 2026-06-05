@@ -2,17 +2,17 @@ package com.example.Create_Character.models;
 
 import jakarta.persistence.*;
 
-@Entity(name = "stats")
-@Table(name = "stats", uniqueConstraints =
-@UniqueConstraint(columnNames = {"classId"}))
+@Entity(name = "Stats")
+@Table(name = "stats")
 public class Stat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @JoinColumn(name = "classId")
-    private Long characterClassId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "character_class_id")
+    private CharacterClass characterClass;
 
     private int strength;
     private int dexterity;
@@ -29,13 +29,14 @@ public class Stat {
         this.id = id;
     }
 
-    public Long getCharacterClassId() {
-        return characterClassId;
+    public CharacterClass getCharacterClass() {
+        return characterClass;
     }
 
-    public void setCharacterClassId(Long characterClassId) {
-        this.characterClassId = characterClassId;
+    public void setCharacterClass(CharacterClass characterClass) {
+        this.characterClass = characterClass;
     }
+
     public int getDexterity() {
         return dexterity;
     }
