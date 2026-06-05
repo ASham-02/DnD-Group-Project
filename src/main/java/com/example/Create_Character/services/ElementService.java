@@ -25,4 +25,9 @@ public class ElementService {
                 .orElseThrow(() ->
                         new EntityNotFoundException("Element not found"));
     }
+
+    // Creating new element
+    public Element createElement(Element element) {
+        return elementRepo.save(element);
+    }
 }

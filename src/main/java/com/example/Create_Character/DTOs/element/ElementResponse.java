@@ -3,14 +3,14 @@ package com.example.Create_Character.DTOs.element;
 public class ElementResponse {
 
     private int id;
-    private String name;
+    private String element;
     private String nation;
 
     public ElementResponse() {}
 
-    public ElementResponse(int id, String name, String nation) {
+    public ElementResponse(int id, String element, String nation) {
         this.id = id;
-        this.name = name;
+        this.element = element;
         this.nation = nation;
     }
 
@@ -22,12 +22,12 @@ public class ElementResponse {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getElement() {
+        return element;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setElement(String name) {
+        this.element = name;
     }
 
     public String getNation() {
