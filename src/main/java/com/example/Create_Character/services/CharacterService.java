@@ -1,7 +1,9 @@
 package com.example.Create_Character.services;
 
 import com.example.Create_Character.models.Character;
+import com.example.Create_Character.models.User;
 import com.example.Create_Character.repos.CharacterRepo;
+import com.example.Create_Character.repos.UserRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +14,11 @@ import java.util.List;
 public class CharacterService {
 
     private final CharacterRepo repo;
+    private final UserRepo userRepo; 
 
-    public CharacterService(CharacterRepo repo) {
+    public CharacterService(CharacterRepo repo, UserRepo userRepo) {
         this.repo = repo;
+        this.userRepo = userRepo;
     }
 
     public List<Character> getAll(Long userId) {
@@ -26,8 +30,11 @@ public class CharacterService {
         return repo.findById(id).orElseThrow();
     }
 
-
-    public Character create(Character character) {
+    // for every user they can create as many characters
+    public Character create(Long userId,  Character character) {
+        User user = userRepo.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User Not Found"));
+        character.setUser(user);
         return repo.save(character);
     }
 

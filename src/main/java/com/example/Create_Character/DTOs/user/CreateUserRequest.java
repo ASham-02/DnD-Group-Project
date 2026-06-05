@@ -10,7 +10,7 @@ public class CreateUserRequest {
     String username;
 
     @NotBlank(message = "A email is required.")
-            @Email(message = "It must be a valid email.")
+    @Email(message = "It must be a valid email.")
     String email;
 
     @NotBlank(message = "A password is required")

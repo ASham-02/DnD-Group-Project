@@ -29,10 +29,10 @@ public class CharacterController {
         return service.getOne(id);
     }
 
-
-    @PostMapping
-    public Character create(@RequestBody Character character) {
-        return service.create(character);
+    // create a characters based on userid
+    @PostMapping(value = "/{userId}")
+    public Character create(@PathVariable long userId, @RequestBody Character character) {
+        return service.create(userId, character);
     }
 
 
