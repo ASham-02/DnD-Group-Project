@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/api/users/auth")
+@RequestMapping(value = "/api/auth/user")
 public class UsersAuthController {
     private final UserService userService;
 
@@ -21,11 +21,13 @@ public class UsersAuthController {
         this.userService = userService;
     }
 
+    // creates user - by getting info username, email and password.
     @PostMapping(value = "/register")
     public ResponseEntity<ApiResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(userService.register(request));
     }
 
+    // verifying login - if username and password correct return successful login otherwise fail.
     @PostMapping(value = "/login")
     public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(userService.login(request));
@@ -34,11 +36,10 @@ public class UsersAuthController {
     @Autowired
     private UserRepo userRepo;
 
-    // testing if username exist
-    @GetMapping("/test/{username}")
-    public String testUser2(@PathVariable String username) {
-        Optional<User> user = userRepo.findByUsername(username);
-        System.out.println("is user present> " + user.isPresent());
+    // finds user by id
+    @GetMapping("{id}")
+    public String testUser2(@PathVariable long id) {
+        Optional<User> user = userRepo.findById(id);
         if (user.isPresent()) {
             return  "user Found: " + user.get().toString();
         } else {

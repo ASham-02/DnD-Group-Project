@@ -30,7 +30,10 @@ public class UserService {
 
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+
+        String encodedPassword = passwordEncoder.encode(request.getPassword());
+
+        user.setPassword(encodedPassword);
 
         userRepo.save(user);
 
@@ -40,7 +43,8 @@ public class UserService {
     public ApiResponse login(LoginRequest request) {
         return userRepo.findByUsername(request.getUsername())
                 .map(user -> {
-                    if (passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+                    boolean passwordMatches = passwordEncoder.matches(request.getPassword(),user.getPassword());
+                    if (passwordMatches) {
                         return new ApiResponse("Login Successful", true);
                     }
                     return  new ApiResponse("Invalid Credential", false);
