@@ -1,5 +1,6 @@
 package com.example.Create_Character.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity(name = "characters")
@@ -16,8 +17,9 @@ public class Character {
     private int weight;
     private String artwork;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
