@@ -2,28 +2,37 @@ package com.example.Create_Character.models;
 
 import jakarta.persistence.*;
 
-@Entity(name = "elements")
+@Entity
 @Table(name = "elements")
 public class Element {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
+    private String element;
+    private String nation;
 
-    private String name;
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getElement() {
+        return element;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setElement(String element) {
+        this.element = element;
+    }
+
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
     }
 }
