@@ -1,13 +1,14 @@
 package com.example.Create_Character.DTOs.stat;
 
 
+import com.example.Create_Character.models.CharacterClass;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class CreateStatsRequest {
-    @NotBlank(message = "A class ID should be provided")
+    @NotNull(message = "A class ID should be provided")
     private Long characterClassId;
 
     @NotNull(message = "Stat Sheet should have strength value")

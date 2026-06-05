@@ -2,17 +2,17 @@ package com.example.Create_Character.DTOs.element;
 
 public class CreateElementRequest {
 
-    private String name;
+    private String element;
     private String nation;
 
     public CreateElementRequest() {}
 
     public String getName() {
-        return name;
+        return element;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.element = name;
     }
 
     public String getNation() {
