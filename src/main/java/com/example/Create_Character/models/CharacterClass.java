@@ -7,10 +7,12 @@ import jakarta.persistence.*;
 @Entity(name = "classes")
 @Table(name = "classes")
 public class CharacterClass {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     //Will need to change to @OnetoOne with relationship to Stat
-    private Long statsId;
+    @OneToOne @JoinColumn(name = "stats_id")
+  private Stat stats;
     private String name;
 
     public long getId() {
@@ -29,12 +31,12 @@ public class CharacterClass {
         this.name = name;
     }
 
-    public Long getStatsId() {
-        return statsId;
+    public Stat getStats() {
+        return stats;
     }
 
-    public void setStatsId(Long statsId) {
-        this.statsId = statsId;
+    public void setStats(Stat stats) {
+        this.stats = stats;
     }
 }
 
