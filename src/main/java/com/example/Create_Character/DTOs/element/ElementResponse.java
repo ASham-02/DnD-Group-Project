@@ -2,23 +2,23 @@ package com.example.Create_Character.DTOs.element;
 
 public class ElementResponse {
 
-    private int id;
+    private Long id;
     private String element;
     private String nation;
 
     public ElementResponse() {}
 
-    public ElementResponse(int id, String element, String nation) {
+    public ElementResponse(Long id, String element, String nation) {
         this.id = id;
         this.element = element;
         this.nation = nation;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
