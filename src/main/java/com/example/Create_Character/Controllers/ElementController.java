@@ -23,7 +23,7 @@ public class ElementController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Element> getElementById(@PathVariable int id) {
+    public ResponseEntity<Element> getElementById(@PathVariable Long id) {
         return ResponseEntity.ok(elementService.getElementById(id));
     }
 
