@@ -16,6 +16,10 @@ import java.util.List;
 public class StatsController {
     private StatsService statsService;
 
+    public StatsController(StatsService statsService) {
+        this.statsService = statsService;
+    }
+
     @GetMapping
     public ResponseEntity<List<StatsResponse>> getAllStats() {
         return ResponseEntity.ok(statsService.getAllStats());

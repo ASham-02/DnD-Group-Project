@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StatsRepo extends JpaRepository<Stat, Long> {
-    boolean existsBycharacterClass(CharacterClass characterClass);
+    boolean existsByCharacterClassId(Long characterClass);
 }

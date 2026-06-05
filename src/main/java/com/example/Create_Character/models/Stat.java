@@ -10,7 +10,7 @@ public class Stat {
     private Long id;
 
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "character_class_id")
     private CharacterClass characterClass;
 
