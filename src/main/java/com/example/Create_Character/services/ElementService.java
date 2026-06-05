@@ -20,7 +20,7 @@ public class ElementService {
         return elementRepo.findAll();
     }
 
-    public Element getElementById(int id) {
+    public Element getElementById(Long id) {
         return elementRepo.findById(id)
                 .orElseThrow(() ->
                         new EntityNotFoundException("Element not found"));
