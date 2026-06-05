@@ -9,6 +9,7 @@ import com.example.Create_Character.repos.CharacterClassRepo;
 import com.example.Create_Character.repos.StatsRepo;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class CharacterClassService {
         this.characterClassRepo = characterClassRepo;
         this.statsRepo = statsRepo;
     }
-
+    @Transactional
     public ClassResponse addCharacterClass(CreateClassRequest newCharacterClassRequest) {
 
         if (characterClassRepo.existsByName(newCharacterClassRequest.getName())) {
@@ -41,14 +42,14 @@ public class CharacterClassService {
         CharacterClass savedCharacterClass = characterClassRepo.save(characterClass);
         return mapToResponse(savedCharacterClass);
     }
-
+    @Transactional(readOnly = true)
     public ClassResponse findCharacterClassById(Long id) {
         CharacterClass characterClass = characterClassRepo.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(
                         String.format("Class with ID: %d, was not found", id)));
         return mapToResponse(characterClass);
     }
-
+    @Transactional(readOnly = true)
     public List<ClassResponse> findAllCharacterClasses() {
         return characterClassRepo.findAll()
                 .stream()

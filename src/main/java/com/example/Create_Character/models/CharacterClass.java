@@ -11,7 +11,8 @@ public class CharacterClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     //Will need to change to @OnetoOne with relationship to Stat
-    @OneToOne @JoinColumn(name = "stats_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stats_id")
   private Stat stats;
     private String name;
 

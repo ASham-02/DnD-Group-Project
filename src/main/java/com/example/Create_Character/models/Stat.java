@@ -10,8 +10,7 @@ public class Stat {
     private Long id;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "character_class_id")
+    @OneToOne(mappedBy = "stats", fetch = FetchType.LAZY)
     private CharacterClass characterClass;
 
     private int strength;
