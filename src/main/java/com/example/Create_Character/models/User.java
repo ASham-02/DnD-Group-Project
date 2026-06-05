@@ -1,6 +1,9 @@
 package com.example.Create_Character.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table
@@ -16,7 +19,11 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    private String password; // Stores hashed password
+    private String password;
+
+    @OneToMany(mappedBy = "user")
+    @JsonManagedReference // this prevents Json infinite loop
+    private List<Character> characters;
 
     public User() {
     }
