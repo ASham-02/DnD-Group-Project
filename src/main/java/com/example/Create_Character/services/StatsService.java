@@ -27,11 +27,11 @@ public class StatsService {
     }
 
     public StatsResponse addStats(CreateStatsRequest newStatsSheet) {
-        if(statsRepo.existsBycharacterClassId(newStatsSheet.getCharacterClassId())){
+        if(statsRepo.existsBycharacterClass(newStatsSheet.getCharacterClass())){
             throw new IllegalArgumentException("There is already a Stats Sheet for this Class");
         }
         Stat stat = new Stat();
-        stat.setCharacterClassId(newStatsSheet.getCharacterClassId());
+        stat.setCharacterClass(newStatsSheet.getCharacterClass());
         stat.setStrength(newStatsSheet.getStrength());
         stat.setDexterity(newStatsSheet.getDexterity());
         stat.setIntelligence(newStatsSheet.getIntelligence());
@@ -43,6 +43,6 @@ public class StatsService {
     }
 
     private StatsResponse mapToResponse(Stat stat) {
-        return new StatsResponse(stat.getId(),stat.getCharacterClassId(), stat.getStrength(), stat.getDexterity(), stat.getIntelligence(), stat.getConstitution(), stat.getWisdom(), stat.getCharisma());
+        return new StatsResponse(stat.getId(),stat.getCharacterClass(), stat.getStrength(), stat.getDexterity(), stat.getIntelligence(), stat.getConstitution(), stat.getWisdom(), stat.getCharisma());
     }
 }

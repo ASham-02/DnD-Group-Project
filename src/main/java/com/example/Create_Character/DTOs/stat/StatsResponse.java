@@ -1,9 +1,11 @@
 package com.example.Create_Character.DTOs.stat;
 
 
+import com.example.Create_Character.models.CharacterClass;
+
 public class StatsResponse {
     private Long id;
-    private Long characterClassId;
+    private CharacterClass characterClass;
     private int strength;
     private int dexterity;
     private int intelligence;
@@ -11,9 +13,9 @@ public class StatsResponse {
     private int wisdom;
     private int charisma;
 
-    public StatsResponse(Long id, Long characterClassId, int strength, int dexterity, int intelligence, int constitution, int wisdom, int charisma) {
+    public StatsResponse(Long id, CharacterClass characterClass, int strength, int dexterity, int intelligence, int constitution, int wisdom, int charisma) {
         this.id = id;
-        this.characterClassId = characterClassId;
+        this.characterClass = characterClass;
         this.strength = strength;
         this.dexterity = dexterity;
         this.intelligence = intelligence;
@@ -30,12 +32,12 @@ public class StatsResponse {
         this.id = id;
     }
 
-    public Long characterClassId() {
-        return characterClassId;
+    public CharacterClass getCharacterClass() {
+        return characterClass;
     }
 
-    public void setCharacterClassId(Long characterClassId) {
-        this.characterClassId = characterClassId;
+    public void setCharacterClass(CharacterClass characterClass) {
+        this.characterClass = characterClass;
     }
 
     public int getStrength() {
