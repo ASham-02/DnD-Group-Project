@@ -1,14 +1,16 @@
 package com.example.Create_Character.DTOs.characterclass;
 
+import com.example.Create_Character.DTOs.stat.StatsResponse;
+
 public class ClassResponse {
     private Long id;
     private String name;
-    private Long statsId;
+    private StatsResponse stats;
 
-    public ClassResponse(Long id, String name, Long statsId){
+    public ClassResponse(Long id, String name, StatsResponse stats) {
         this.id = id;
         this.name = name;
-        this.statsId = statsId;
+        this.stats = stats;
     }
     public Long getId() {
         return id;
@@ -26,11 +28,17 @@ public class ClassResponse {
         this.name = name;
     }
 
-    public Long getStatsId() {
-        return statsId;
-    }
+        public StatsResponse getStats() {
+            return stats;
+        }
 
-    public void setStatsId(Long statsId) {
-        this.statsId = statsId;
-    }
+        public void setStats(StatsResponse stats) {
+            this.stats = stats;
+        }
+
+
+
 }
+
+
+
