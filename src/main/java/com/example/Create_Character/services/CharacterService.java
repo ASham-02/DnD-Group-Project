@@ -1,8 +1,10 @@
 package com.example.Create_Character.services;
 
 import com.example.Create_Character.models.Character;
+import com.example.Create_Character.models.Element;
 import com.example.Create_Character.models.User;
 import com.example.Create_Character.repos.CharacterRepo;
+import com.example.Create_Character.repos.ElementRepo;
 import com.example.Create_Character.repos.UserRepo;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +16,13 @@ import java.util.List;
 public class CharacterService {
 
     private final CharacterRepo repo;
-    private final UserRepo userRepo; 
+    private final UserRepo userRepo;
+    private final ElementRepo elementRepo;
 
-    public CharacterService(CharacterRepo repo, UserRepo userRepo) {
+    public CharacterService(CharacterRepo repo, UserRepo userRepo, ElementRepo elementRepo) {
         this.repo = repo;
         this.userRepo = userRepo;
+        this.elementRepo = elementRepo;
     }
 
     public List<Character> getAll(Long userId) {
@@ -34,7 +38,11 @@ public class CharacterService {
     public Character create(Long userId,  Character character) {
         User user = userRepo.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User Not Found"));
+        Element element = elementRepo.findById(
+                character.getElement().getId()
+        ).orElseThrow(() -> new RuntimeException("Element Not Found"));
         character.setUser(user);
+        character.setElement(element);
         return repo.save(character);
     }
 
