@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/stats")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class StatsController {
     private StatsService statsService;
 
