@@ -7,12 +7,13 @@ import com.example.Create_Character.models.User;
 import com.example.Create_Character.repos.UserRepo;
 import com.example.Create_Character.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
-
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RequestMapping(value = "/api/user")
 public class UserController {
     private final UserService userService;
@@ -30,14 +31,26 @@ public class UserController {
     // verifying login - if username and password correct return successful login otherwise fail.
     @PostMapping(value = "/login")
     public ResponseEntity<ApiResponse> login(@RequestBody LoginRequest request) {
-        return ResponseEntity.ok(userService.login(request));
+        ApiResponse response = userService.login(request);
+
+        System.out.println("USERNAME FROM FRONTEND: " + request.getUsername());
+        System.out.println("PASSWORD FROM FRONTEND: " + request.getPassword());
+        if (response.isSuccess()) {
+            return ResponseEntity.ok(response); // 200 OK
+        }
+
+        if (response.getMessage().equals("User Not Found")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
     }
 
     // finds user by id
     @Autowired
     private UserRepo userRepo;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public User getUserById(@PathVariable long id) {
         return userRepo.findById(id).orElseThrow();
     }
