@@ -26,7 +26,7 @@ public class Character {
     @JoinColumn(name = "class_id")
     private CharacterClass characterClass;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "element_id")
     private Element element;
 
