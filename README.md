@@ -17,7 +17,13 @@ For each character, the name, class, height and weight, element and others need 
 The character, classes, stats sheets, element and users are all separated into their own sections, each with their own models, DTOs, controllers, repos and services.
 This means that the SQL database can permanently hold the preset classes, stats sheets and elements without having a user need to create their own. This also allows for us to update it in the future to add more classes and elements in the future simply by updating the database.
 
---
+---
+
+## Login System
+Included in the repository is a system that allows users to log in. This will mean that instead of requiring an ID to view a user's characters, the log in details will be linked to the users ID and display the characters on a webpage when they have successfully logged in. This also allows easier saving of characters as they do not need to have a user ID specified on creation but will instead have it linked as soon as they have added all the details.
+
+---
+
 ## Class Management API
 Each controller has at least 3 different functions
 
@@ -38,8 +44,3 @@ Example request body:
 "stats": 9,5,3,6,1,5
   
 }
-
-For Local testing:  
-application.properties  
-spring.datasource.url=jdbc:h2:mem:testdb  
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
