@@ -20,10 +20,10 @@ public class UserService {
 
     public ApiResponse register(RegisterRequest request) {
         if (userRepo.existsByUsername(request.getUsername())) {
-            return new ApiResponse("Username already exists", false);
+            return new ApiResponse("Username already exists", false, null);
         }
         if (userRepo.existsByEmail(request.getEmail())) {
-            return new ApiResponse("Email already exists", false);
+            return new ApiResponse("Email already exists", false, null);
         }
 
         User user = new User();
@@ -38,16 +38,16 @@ public class UserService {
 
         userRepo.save(user);
 
-        return new ApiResponse("User registered successfully", true);
+        return new ApiResponse("User registered successfully", true, user.getId());
     }
 
     public ApiResponse login(LoginRequest request) {
         return userRepo.findByUsername(request.getUsername())
                 .map(user -> {
                     if (user.getPassword().equals(request.getPassword())) {
-                        return new ApiResponse("Login Successful", true);
+                        return new ApiResponse("Login Successful", true, user.getId());
                     }
-                    return  new ApiResponse("Invalid Password", false);
-                }).orElse(new ApiResponse("User Not Found", false));
+                    return  new ApiResponse("Invalid Password", false, null);
+                }).orElse(new ApiResponse("User Not Found", false, null));
     }
 }
