@@ -1,5 +1,6 @@
 package com.example.Create_Character.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity(name = "Stats")
@@ -11,6 +12,7 @@ public class Stat {
 
 
     @OneToOne(mappedBy = "stats", fetch = FetchType.LAZY)
+    @JsonManagedReference
     private CharacterClass characterClass;
 
     private int strength;

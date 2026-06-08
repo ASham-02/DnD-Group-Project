@@ -1,5 +1,6 @@
 package com.example.Create_Character.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 
@@ -12,6 +13,7 @@ public class CharacterClass {
     private long id;
     //Will need to change to @OnetoOne with relationship to Stat
     @OneToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     @JoinColumn(name = "stats_id")
   private Stat stats;
     private String name;

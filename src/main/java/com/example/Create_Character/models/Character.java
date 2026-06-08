@@ -30,11 +30,6 @@ public class Character {
     @JoinColumn(name = "element_id")
     private Element element;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "stats_id")
-    private Stat stat;
-
-
     public long getId() { return id; }
     public String getName() { return name; }
     public int getAge() { return age; }
@@ -44,7 +39,6 @@ public class Character {
     public User getUser() { return user; }
     public CharacterClass getCharacterClass() { return characterClass; }
     public Element getElement() { return element; }
-    public Stat getStat() { return stat; }
 
     // Setters
     public void setId(long id) { this.id = id; }
@@ -56,6 +50,5 @@ public class Character {
     public void setUser(User user) { this.user = user; }
     public void setCharacterClass(CharacterClass characterClass) { this.characterClass = characterClass; }
     public void setElement(Element element) { this.element = element; }
-    public void setStat(Stat stat) { this.stat = stat; }
 }
 
