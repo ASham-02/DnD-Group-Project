@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/characters")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class CharacterController {
 
     private final CharacterService service;

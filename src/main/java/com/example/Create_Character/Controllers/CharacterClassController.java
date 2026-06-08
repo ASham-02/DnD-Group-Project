@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping(value = "/api/characterClass")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class CharacterClassController {
     private final CharacterClassService characterClassService;
 
